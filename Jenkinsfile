@@ -1,20 +1,20 @@
-pipelines {
-    agent any
-     stages {
-        stage('---clean---') {
-          steps {
-            sh "mvn clean"
-            }
-          }
-          stage('---test---') {
+pipeline {
+    agent any 
+    stages {
+        stage('---clean---') { 
             steps {
-             sh "mvn test"
+                bat "mvn clean"
             }
-          }
-          stage('---package---') {
+        }
+        stage('---test---') { 
             steps {
-             sh "mvn package"
+                bat"mvn test" 
             }
-          }
-       }
+        }
+        stage('---package---') { 
+            steps {
+                bat "mvn package"
+            }
+        }
     }
+}
